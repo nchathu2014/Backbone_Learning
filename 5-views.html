@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Backbone Learning</title>
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/underscore/underscore-min.js"></script>
+    <script src="node_modules/backbone/backbone-min.js"></script>
+    <script src="js/5_views.js"></script>
+</head>
+<body>
+<h1>Views</h1>
+<p id="viewPara">View Text </p>
+<script>
+    var aView = new TestView({el:$('#viewPara')});
+    console.log(aView)
+</script>
+</body>
+</html>

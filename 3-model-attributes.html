@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Backbone Learning</title>
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/underscore/underscore-min.js"></script>
+    <script src="node_modules/backbone/backbone-min.js"></script>
+    <script src="js/2_model-attributes.js"></script>
+</head>
+<body>
+<h1>Model</h1>
+<script>
+    var studentObj_1 = new StudentModel();
+    console.log("============ Initial Values ==================");
+    console.log("ID : "+studentObj_1.get("id"));
+    console.log("Name : "+studentObj_1.get("name"));
+
+    console.log("============ Set Values ==================");
+    studentObj_1.set({
+        id:567,
+        name:"Dasuni Nadeera"
+    });
+    console.log("New ID : "+studentObj_1.get("id"));
+    console.log("New Name : "+studentObj_1.get("name"));
+
+
+    console.log("================ Constructor initialization ===============")
+    //constructor initialization
+    var studentObj_2 = new StudentModel({
+        id:"Cons ID",
+        name:"Cons Name"
+    });
+
+    console.log("ID : "+studentObj_2.get("id"));
+    console.log("Name : "+studentObj_2.get("name"));
+
+</script>
+
+</body>
+</html>
