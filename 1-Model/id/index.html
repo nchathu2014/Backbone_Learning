@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Backbone Learning</title>
+
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../../node_modules/underscore/underscore-min.js"></script>
+    <script src="../../node_modules/backbone/backbone-min.js"></script>
+
+</head>
+<body>
+
+<h1>id</h1>
+<p>model.id <br>
+    A special property of models, the id is an arbitrary string (integer id or UUID). If you set the id in the attributes hash, it will be copied onto the model as a direct property. Models can be retrieved by id from collections, and the id is used to generate model URLs by default.</p>
+<script>
+
+
+var Person = Backbone.Model.extend({
+
+    initialize:function(){
+        console.log("Model Initialize....");
+    },
+    defaults:{},
+
+
+});
+
+    var person = new Person({
+        id:100001
+    });
+
+    console.log(person);
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Backbone Learning</title>
+
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../../node_modules/underscore/underscore-min.js"></script>
+    <script src="../../node_modules/backbone/backbone-min.js"></script>
+
+</head>
+<body>
+    <h1>extend</h1>
+    <script>
+
+        var Person = Backbone.Model.extend({
+
+            defaults:{
+                name:null,
+                age:null
+            },
+            initialize:function(){
+                console.log("-------Person initialize-------");
+            },
+
+            getAge:function(){
+              return this.get('age');
+            },
+
+            getName:function(){
+                return this.get("name");
+            }
+
+
+        });
+
+
+        var FullTime = Person.extend({
+
+            initialize:function(){
+                console.log("---------FullTime initialize--------");
+            },
+
+            defaults:{
+                fId:null
+            },
+            getFID:function(){
+                return this.get("fId")
+            }
+
+        });
+
+        var Contract = Person.extend({
+            initialize:function(){
+                console.log("---------Contract initialize--------");
+            },
+
+            defaults:{
+                cId:null
+            },
+
+            getCID:function(){
+                return this.get("cId")
+            }
+
+        });
+
+
+        var person = new Person({
+            name:"Nuwan",
+            age:1000
+        });
+        console.log('Name : '+person.getName()+" Age : "+person.getAge());
+
+        var fPerson = new FullTime({
+            name:"Nuwan (Full Time)",
+            age:1001,
+            fId:"F1000"
+        });
+
+        console.log('Name : '+fPerson.getName()+" Age : "+fPerson.getAge()+" ID :"+fPerson.getFID());
+
+        var cPerson = new Contract({
+            name:"Nuwan (Contract Time)",
+            age:1002,
+            cId:"C10009"
+        });
+
+        console.log('Name : '+cPerson.getName()+" Age : "+cPerson.getAge()+" ID :"+cPerson.getCID());
+
+
+
+
+    </script>
+</body>
+</html>

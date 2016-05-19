@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Backbone Learning</title>
+
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../../node_modules/underscore/underscore-min.js"></script>
+    <script src="../../node_modules/backbone/backbone-min.js"></script>
+
+</head>
+<body>
+
+<h1>escape</h1>
+<script>
+
+var Hacker = Backbone.Model.extend({
+
+   defaults:{
+       name:"<script>alert('XSS attack')</script>"
+   },
+
+    initialize:function(){
+        console.log("Initialize the Model")
+    }
+
+
+
+});
+
+var hacker = new Hacker();
+hacker.get("name")
+
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Backbone Learning</title>
+
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../../node_modules/underscore/underscore-min.js"></script>
+    <script src="../../node_modules/backbone/backbone-min.js"></script>
+
+</head>
+<body>
+
+<h1>clear</h1>
+<p>Removes all attributes from the model, including the id attribute. Fires a "change" event unless silent is passed as an option.</p>
+<script>
+
+
+var Person = Backbone.Model.extend({
+
+    initialize:function(){
+        console.log("Model Initialize....");
+        this._changeFName()
+    },
+    defaults:{
+        fname:"Nuwan",
+        lname:"Chathuranga"
+    },
+    _changeFName:function(){
+        this.on('change:fname',function(){
+            console.log("Attribute Changed To...");
+        })
+    }
+
+});
+
+    var person = new Person();
+
+    console.log("========= Person Model =========")
+    console.log("fname : "+person.get("fname"));
+    console.log("lname : "+person.get("lname"));
+
+    console.log("========= Clear Person Model =========")
+
+   person.clear({silent:false});
+   console.log("fname : "+person.get("fname"));
+   console.log("lname : "+person.get("lname"));
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Backbone Learning</title>
+
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../../node_modules/underscore/underscore-min.js"></script>
+    <script src="../../node_modules/backbone/backbone-min.js"></script>
+
+</head>
+<body>
+
+<h1>idAttribute</h1>
+<p>model.idAttribute <br>
+    A model's unique identifier is stored under the id attribute. If you're directly communicating with a backend (CouchDB, MongoDB) that uses a different unique key, you may set a Model's idAttribute to transparently map from that key to id.</p>
+
+<script>
+
+
+var Person = Backbone.Model.extend({
+
+    initialize:function(){
+        console.log("Model Initialize....");
+    },
+    idAttribute:'_id',
+    defaults:{},
+
+
+});
+
+    var person = new Person({
+        _id:100000,
+        name:"Nuwan"
+    });
+
+    console.log(person);
+
+
+</script>
+</body>
+</html>

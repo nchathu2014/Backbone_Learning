@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Backbone Learning</title>
+
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../../node_modules/underscore/underscore-min.js"></script>
+    <script src="../../node_modules/backbone/backbone-min.js"></script>
+
+</head>
+<body>
+
+<h1>Constructor/Initialize get and set properties </h1>
+<script>
+
+    var Person = Backbone.Model.extend({
+
+        initialize:function(){
+            console.log("Model Person Initialize...")
+        }
+
+    });
+
+    var person = new Person({
+        name:"Nuwan Chathuranga",
+        age:1000
+    });
+
+    console.log("Name : "+person.get("name"));
+    console.log("Age : "+person.get("age"))
+
+    console.log("=============== Setting and getting from Model ===============");
+
+    person.set({
+        name:"New Nuwan Chathuranga",
+        age:2000
+    });
+
+    console.log("New Name : "+person.get("name"));
+    console.log("New Age : "+person.get("age"))
+
+
+</script>
+</body>
+</html>
