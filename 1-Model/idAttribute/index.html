@@ -11,10 +11,15 @@
 </head>
 <body>
 
-<h1>idAttribute</h1>
+<h1>idAttribute and cid</h1>
 <p>model.idAttribute <br>
     A model's unique identifier is stored under the id attribute. If you're directly communicating with a backend (CouchDB, MongoDB) that uses a different unique key, you may set a Model's idAttribute to transparently map from that key to id.</p>
 
+
+<p>
+    model.cid <br>
+    A special property of models, the cid or client id is a unique identifier automatically assigned to all models when they're first created. Client ids are handy when the model has not yet been saved to the server, and does not yet have its eventual true id, but already needs to be visible in the UI.
+</p>
 <script>
 
 
@@ -34,7 +39,13 @@ var Person = Backbone.Model.extend({
         name:"Nuwan"
     });
 
+var person1 = new Person({
+    _id:100001,
+    name:"Nuwan C"
+});
+
     console.log(person);
+console.log(person1);
 
 
 </script>

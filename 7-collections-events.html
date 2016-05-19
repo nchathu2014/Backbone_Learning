@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Backbone Learning</title>
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/underscore/underscore-min.js"></script>
+    <script src="node_modules/backbone/backbone-min.js"></script>
+
+</head>
+<body>
+<h1>Collections Events</h1>
+<script>
+
+    var Student = Backbone.Model.extend({
+        initialize:function(){
+
+        },
+        defaults:{
+            name:"unknown"
+        }
+
+
+    });
+
+    var StudentCollection = Backbone.Collection.extend({
+
+        initialize:function(){
+            this.bindEvents();
+        },
+        model:Student,
+        bindEvents:function(){
+
+            this.on('change:name',function(model){
+                console.log("Changed Name : "+model.get("name"))
+            }),
+            this.on('add',function(model){
+                console.log("Add Student : "+JSON.stringify(model.toJSON()))
+            }),
+            this.on('remove',function(model){
+                console.log("Remove Student : "+JSON.stringify(model.toJSON()))
+            })
+
+
+        }
+
+    });
+
+    var nuwan = new Student({id:100,name:"Nuwan"});
+    var angelo = new Student({id:101,name:"Anjelo"});
+    var mathisha = new Student({id:120,name:"Mathisha"});
+
+    var class_1 = new StudentCollection([nuwan]);
+    nuwan.set({name:"Nuwan Chathuranga"});//class_1.get({id:100}).set({name:"Nuwan Nuwan"});
+    class_1.add(angelo);
+    class_1.remove(nuwan);
+
+
+</script>
+</body>
+</html>

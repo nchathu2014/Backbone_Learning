@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Backbone Learning</title>
+
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../../node_modules/underscore/underscore-min.js"></script>
+    <script src="../../node_modules/backbone/backbone-min.js"></script>
+
+</head>
+<body>
+
+<h1>toJSON</h1>
+<p>
+    Return a <b>shallow copy of the model's attributes</b> for JSON stringification. This can be used for persistence, serialization, or for augmentation before being sent to the server. The name of this method is a bit confusing, as it doesn't actually return a JSON string — but I'm afraid that it's the way that the JavaScript API for JSON.stringify works.
+</p>
+<script>
+
+
+var Person = Backbone.Model.extend({
+
+    initialize:function(){
+        console.log("Model Initialize....");
+    },
+    defaults:{
+        fname:"Nuwan",
+        lname:"Chathuranga"
+    },
+
+
+})
+
+    var person = new Person({
+        age:100,
+        marks:98
+    });
+
+
+    alert(person);
+    alert(JSON.stringify(person));
+
+
+</script>
+</body>
+</html>

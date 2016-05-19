@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Backbone Learning</title>
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/underscore/underscore-min.js"></script>
+    <script src="node_modules/backbone/backbone-min.js"></script>
+
+</head>
+<body>
+<h1>Collections</h1>
+<script>
+
+    var Student = Backbone.Model.extend({
+        initialize:function(){
+            console.log("Model initialize");
+        }
+    });
+
+    var StudentCollection = Backbone.Collection.extend({
+        model:Student
+    });
+
+    var nuwan = new Student({id:100,name:"Nuwan"});
+    var angelo = new Student({id:101,name:"Anjelo"});
+    var mathisha = new Student({id:120,name:"Mathisha"});
+
+    var class_1 = new StudentCollection([nuwan,angelo]);
+
+    console.log(JSON.stringify(class_1.toJSON()));
+
+    console.log("========= add a new student to the collection =============");
+    class_1.add(mathisha);
+    console.log(JSON.stringify(class_1.toJSON()));
+
+    console.log("========= Change to the collection =============");
+
+    var student = class_1.get(100);
+    console.log("Selected Student : "+JSON.stringify(student.toJSON()))
+    student.set({
+        name:"Nuwan Chathuranga"
+    });
+    console.log(JSON.stringify(class_1.toJSON()));
+
+</script>
+</body>
+</html>
